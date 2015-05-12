@@ -183,7 +183,6 @@ preterit = {
 "write":"wrote",
 }
 
-print preterit
 
 for verb, conjug in preterit.items():
     print "Le verbe %s se conjugue au prétérit par %s" % (verb, conjug)
@@ -211,6 +210,7 @@ elif score < 6 and score >= 5:
     print "Vous avez la moyenne avec %d réponses justes" % score
 else:
     print "Vous n'avez pas la moyenne avec %d réponses justes" % score
-    
+
+
     
 
