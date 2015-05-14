@@ -2,6 +2,7 @@
 import random
 counter = 0
 score = 0
+lst = []
 
 # création d'un dictionnaire avec verbes et traduction Française,
 # une liste dans un dictionnaire
@@ -184,10 +185,38 @@ verbes = {
 "wring":["wrung","wrung","tordre"],
 "write":["written","written","écrire"],
 }
-
 rand = random.choice(verbes.items())
+verb, (pret, past, trad) = rand
+# print "Le verbe %s se conjugue au prétérit par %s, au participe passé par %s et se traduit par %s" % (verb, pret, past, trad)
+lst = []
+lst.append(verb)
+lst.append(pret)
+lst.append(past)
+lst.append(trad)
+x = random.randint(0,3)
+print "Le jeu consiste à trouver le verbe irrégulier, son prétérit et son participe passé, en fonction de sa traduction Française"
+print "Par exemple : si le verbe '%s' est proposé, il faudra répondre '%s', '%s' et '%s'" % (lst[3], lst[0], lst[1], lst[2])
 
-print rand
+while counter < 10 :
+    rand = random.choice(verbes.items())
+    verb, (pret, past, trad) = rand
+    # print "Le verbe %s se conjugue au prétérit par %s, au participe passé par %s et se traduit par %s" % (verb, pret, past, trad)
+    lst = []
+    lst.append(verb)
+    lst.append(pret)
+    lst.append(past)
+    lst.append(trad)
+    x = random.randint(0,3)
+    print "Le jeu consiste à trouver le verbe irrégulier, son prétérit et son participe passé, en fonction de sa traduction Française"
+    if x == 0:
+        print "C'est le verbe à l'infinitif qui sort %s" % lst[0]
+    elif x == 1:
+        print "C'est le verbe au prétérit qui sort %s" % lst[1]
+    elif x == 2:
+        print "C'est le verbe au past qui sort %s" % lst[2]
+    else:
+        print "C'est la traduction du verbe qui sort %s" % lst[3]
+        
+    # print "Qu'est-ce qui va sortir %s" % lst[x]
+    counter = counter + 1 
 
-#for verb, (pret, past, trad) in rand:
-#    print "Le verbe %s se conjugue au prétérit par %s, au participe passé par %s et se traduit par %s" % (verb, pret, past, trad)
