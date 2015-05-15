@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 import random
 
+def ratio(score, counter):
+    return "Vous avez %f réponses de juste sur %f" % (score, (counter*3))
+    return ((score/(counter*3))*100)
+
+
 
 def infinitif():
     counter = 0
@@ -42,9 +47,8 @@ def infinitif():
             print "La bonne réponse est '%s'" % lst[3]
 
         counter = counter + 1
-        print counter
-        print score
-    return (counter, score)
+    z = ratio(score, counter)
+    print "Soit %f pourcent de bonnes réponses." % z
 
 
 def traduction():
@@ -87,9 +91,10 @@ def traduction():
             print "La bonne réponse est '%s'" % lst[2]
 
         counter = counter + 1
-        print counter
-        print score
-    return (counter, score)
+    z = ratio(score, counter)
+    print "Soit %f pourcent de bonnes réponses." % z
+
+
 
 
 # création d'un dictionnaire avec verbes et traduction Française,
@@ -282,20 +287,23 @@ lst.append(pret)
 lst.append(past)
 lst.append(trad)
 
-print """Ce court programme propose d'étuditer les verbes irrégliers de la
+print """\nCe court programme propose d'étuditer les verbes irrégliers de la
 langue Anglaise.
-Deux modes de jeu sont proposés :
+\nDeux modes de jeu sont proposés :
+
 \t soit le programme va afficher le verbe irrégulier à l'infinitif et vous
-devrez trouver son prétérit, son participe passé et sa traduction en Français."""
+devrez trouver son prétérit, son participe passé et sa traduction en Français.
+"""
 
 print "Par exemple : si le verbe '%s' est proposé, il faudra répondre '%s', '%s' et '%s'" % (lst[3], lst[0], lst[1], lst[2])
 
-"""
+print """
 \t soit le programme va afficher la traduction du verbe en Français et vous
 devrez dans ce cas la, trouver son infinitif, son prétérite et son participe passé.
 """
 
 print "Par exemple : si le verbe '%s' est proposé, il faudra répondre '%s', '%s' et '%s'" % (lst[0], lst[1], lst[2], lst[3])
+print "\n"
 
 numb = raw_input("Combien de partie souhaitez vous jouer? >>>  ")
 numb = int(numb)
@@ -307,5 +315,3 @@ if jeu == "1":
     infinitif()
 else:
     traduction()
-
-print counter
