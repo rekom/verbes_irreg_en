@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 import random
 
-def ratio(score, counter):
-    return "Vous avez %f réponses de juste sur %f" % (score, (counter*3))
-    return ((score/(counter*3))*100)
+def score(score, counter):
+    return "Vous avez %d réponses de juste sur %d" % (score, (counter*3))
 
 
 
 def infinitif():
+    global counter
+    global score
     counter = 0
     score = 0
 
@@ -47,11 +48,12 @@ def infinitif():
             print "La bonne réponse est '%s'" % lst[3]
 
         counter = counter + 1
-    z = ratio(score, counter)
-    print "Soit %f pourcent de bonnes réponses." % z
+
 
 
 def traduction():
+    global counter
+    global score
     counter = 0
     score = 0
 
@@ -91,9 +93,7 @@ def traduction():
             print "La bonne réponse est '%s'" % lst[2]
 
         counter = counter + 1
-    z = ratio(score, counter)
-    print "Soit %f pourcent de bonnes réponses." % z
-
+        print ratio(score, counter)
 
 
 
@@ -315,3 +315,5 @@ if jeu == "1":
     infinitif()
 else:
     traduction()
+
+print score(score, counter)
